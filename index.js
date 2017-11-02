@@ -1,7 +1,7 @@
 const NamedRegExp = require('named-regexp-groups')
 
 
-function getRegex(scope, component, param) {
+function get(scope, component, param) {
 	scope = scope == '*' ? '[^\.]+' : scope;
 	component = component == '*' ? '[^\.]+' : component;
 	param = param == '*' ? '[^\.]+' : param;
@@ -12,7 +12,7 @@ function getRegex(scope, component, param) {
 	);
 }
 
-function getInsertRegex(param, lang='js') {
+function getInsert(param, lang='js') {
 	param = param == '*' ? '[^\s\-]+' : param;
 	if (lang == 'html') {
 		return new NamedRegExp(
@@ -26,7 +26,7 @@ function getInsertRegex(param, lang='js') {
 	}
 }
 
-function getAllRegex() {
+function getAll() {
 	return new NamedRegExp(
 		'([^\n]+Red\.[^\.]+\.[^\.]+\.[^\n]+\n)'
 	)
