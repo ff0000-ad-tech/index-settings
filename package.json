@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "RED Interactive Agency",
   "license": "ISC",
   "dependencies": {
     "named-regexp-groups": "^1.0.2"
