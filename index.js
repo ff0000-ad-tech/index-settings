@@ -31,3 +31,9 @@ function getAll() {
 		'([^\n]+Red\.[^\.]+\.[^\.]+\.[^\n]+\n)'
 	)
 }
+
+module.exports = {
+	get: get,
+	getInsert: getInsert,
+	getAll: getAll
+};
