@@ -6,9 +6,9 @@ function get(scope, component, param) {
 	component = component == '*' ? '[^\.]+' : component;
 	param = param == '*' ? '[^\.]+' : param;
 	return new NamedRegExp(
-		'(?<hook_start>[^\n]+(?<scope>' + scope + ')\.(?<component>' + component + ')\.(?<param>' + param + ')\.start[^\n]+\n)' + 
-			'(?<hook_content>[\s\S]*?)' + 
-			'(?<hook_end>([^\S\n]*[\/\*\<\!\-]+\s?\-+\s?(?&scope)\.(?&component)\.(?&param)\.end[^\n]+))'
+		'(?<start>[^\n]+(?<scope>' + scope + ')\.(?<component>' + component + ')\.(?<param>' + param + ')\.start[^\n]+\n)' + 
+			'(?<content>[^]*?)' + 
+			'(?<end>[^\S\n]*((\/\*--\s*)|(<\!--\s*))?(?&scope)\.(?&component)\.(?&param)\.end[^\n]+)'
 	);
 }
 
