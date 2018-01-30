@@ -10,5 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "named-regexp-groups": "^1.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.5.0",
+    "prettier": "^1.10.2"
   }
 }
