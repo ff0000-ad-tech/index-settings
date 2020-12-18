@@ -48,7 +48,8 @@ const stringify = (hook, { start, end, lang } = {}) => {
  * Find hook content in source
  * 
  */
-function getHookRegex(scope, type, param) {
+function getHookRegex(hook) {
+	hook = parse(hook)
 	scope = scope == '*' ? '[^.]+' : scope
 	type = type == '*' ? '[^.]+' : type
 	param = param == '*' ? '[^.]+' : param
