@@ -1,21 +1,42 @@
-##### RED Interactive Agency - Ad Technology
+##### FF0000 Ad Tech
 
-RED Hooks Regex
-===============
+# Comment Hooks
 
-"Red Hooks" are a comment-syntax that is used by AdApp in conjunction with stub.json files to do the following
-1. Inject code into specific locations throughout the build files. Existing components that need to do this include:
-  - Build Source: "Red.Component"
-  - Build Edge: "Red.Edge"
-  - Deploy - "Red.Network"
-2) Stub files maintain a map of what components are required, or have been injected into a particular build.
-	  
-Respective of whether they are JS or HTML, the hooks look like:
+Comment-hooks are a pattern that enables text documents to define specific start/end points, so that manager applications can read & write to those locations with confidence.
+
+This library provides an interface for:
+
+1. Parsing and stringifying hook addresses
+2. Generating hook regex patterns.
+
+With these tools, the manager application has all it needs to read & write to documents which have implemented comment hooks.
+
+## Hook Address
+
+`[scope].[type].[param]`
+
+## Formatting
+
+### Body Hooks
+
+These hooks indicate a start-point and an end-point. All content between these two comments will be matched.
+
 ```javascript
-/*-- [scope].[component].[param].[start/end] --*/
+/*-- [scope].[type].[param].[start/end] --*/
 ```
+
 ```html
-<!-- [scope].[component].[param].[start/end] -->
+<!-- [scope].[type].[param].[start/end] -->
 ```
 
+## Insert Hooks
 
+These hooks only indicate a single insertion point, and should be considered write-only.
+
+```javascript
+/*-- [scope].Insert.[param] --*/
+```
+
+```html
+<!-- [scope].Insert.[param] -->
+```
