@@ -2,9 +2,9 @@ const NamedRegExp = require('named-regexp-groups')
 
 /**
  * Parse a hook id
- * 
+ *
  * [scope].[type].[param].[start/end]
- * 
+ *
  */
 const parse = (hook) => {
 	// string will be parsed
@@ -46,23 +46,20 @@ const stringify = (hook, { start, end, lang } = {}) => {
 
 /**
  * Find hook content in source
- * 
+ *
  */
 function getHookRegex(hook) {
 	hook = parse(hook)
-	scope = scope == '*' ? '[^.]+' : scope
-	type = type == '*' ? '[^.]+' : type
-	param = param == '*' ? '[^.]+' : param
+	const scope = hook.scope == '*' ? '[^.]+' : hook.scope
+	const type = hook.type == '*' ? '[^.]+' : hook.type
+	const param = hook.param == '*' ? '[^.]+' : hook.param
 	return new NamedRegExp(
-		'(?<start>[^\n]+(?<scope>' +
-		scope +
-		').(?<type>' +
-		type +
-		').(?<param>' +
-		param +
-		').start[^\n]+\n)' +
-		'(?<content>[^]*?)' +
-		'(?<end>[^S\n]*((/*--s*)|(<!--s*))?(?&scope).(?&type).(?&param).end[^\n]+)'
+		`(?<start>[^\n]+` +
+		`(?<scope>${scope}).` +
+		`(?<type>${type}).` +
+		`(?<param>${param}).start[^\n]+\n)` +
+		`(?<content>[^]*?)` +
+		`(?<end>[^S\n]*((/*--s*)|(<!--s*))?(?&scope).(?&type).(?&param).end[^\n]+)`
 	)
 }
 
@@ -79,7 +76,6 @@ function getScopeRegex(scope) {
 	scope = scope || 'Red'
 	return new NamedRegExp(`([^\n]+${scope}.[^.]+.[^.]+.[^\n]+\n)`)
 }
-
 
 module.exports = {
 	parse,
