@@ -48,7 +48,7 @@ const stringify = (hook, { start, end, lang } = {}) => {
  * Find hook content in source
  *
  */
-function getRegexByHook(hook) {
+function getRegexForHook(hook) {
 	hook = parse(hook)
 	const scope = hook.scope == '*' ? '[^.]+' : hook.scope
 	const type = hook.type == '*' ? '[^.]+' : hook.type
@@ -74,13 +74,13 @@ function getRegexForInsert(param, lang = 'js') {
 
 function getRegexForAll(scope) {
 	scope = scope || 'Red'
-	return new NamedRegExp(`([^\n]+${scope}.[^.]+.[^.]+.[^\n]+\n)`)
+	return new RegExp(`([^\n]+${scope}.[^.]+.[^.]+.[^\n]+\n)`, 'g')
 }
 
 module.exports = {
 	parse,
 	stringify,
-	getRegexByHook,
+	getRegexForHook,
 	getRegexForInsert,
 	getRegexForAll
 }
