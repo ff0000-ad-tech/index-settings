@@ -48,7 +48,7 @@ const stringify = (hook, { start, end, lang } = {}) => {
  * Find hook content in source
  *
  */
-function getHookRegex(hook) {
+function getRegexByHook(hook) {
 	hook = parse(hook)
 	const scope = hook.scope == '*' ? '[^.]+' : hook.scope
 	const type = hook.type == '*' ? '[^.]+' : hook.type
@@ -63,7 +63,7 @@ function getHookRegex(hook) {
 	)
 }
 
-function getInsertRegex(param, lang = 'js') {
+function getRegexForInsert(param, lang = 'js') {
 	param = param == '*' ? '[^s-]+' : param
 	if (lang == 'html') {
 		return new NamedRegExp('(<!)--s*Red.Insert.' + param + 's*--(>)')
@@ -72,7 +72,7 @@ function getInsertRegex(param, lang = 'js') {
 	}
 }
 
-function getScopeRegex(scope) {
+function getRegexForAll(scope) {
 	scope = scope || 'Red'
 	return new NamedRegExp(`([^\n]+${scope}.[^.]+.[^.]+.[^\n]+\n)`)
 }
@@ -80,7 +80,7 @@ function getScopeRegex(scope) {
 module.exports = {
 	parse,
 	stringify,
-	getHookRegex,
-	getInsertRegex,
-	getScopeRegex
+	getRegexByHook,
+	getRegexForInsert,
+	getRegexForAll
 }
