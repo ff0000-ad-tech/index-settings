@@ -1,9 +1,9 @@
 {
-	"name": "@ff0000-ad-tech/comment-hooks",
+	"name": "@ff0000-ad-tech/index-settings",
 	"publishConfig": {
 		"access": "public"
 	},
-	"version": "1.1.0",
+	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
@@ -15,12 +15,13 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/ff0000-ad-tech/comment-hooks.git"
+		"url": "https://github.com/ff0000-ad-tech/index-settings.git"
 	},
-	"author": "RED Interactive Agency",
+	"author": "160over90",
 	"license": "MIT",
 	"dependencies": {
-		"named-regexp-groups": "^1.0.2"
+		"@ff0000-ad-tech/comment-hooks": "^1.1.0",
+		"require-from-string": "^2.0.1"
 	},
 	"devDependencies": {
 		"@babel/eslint-parser": "^7.15.0",
