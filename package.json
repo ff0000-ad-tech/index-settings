@@ -7,7 +7,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"pub": "np --any-branch"
+		"pub": "np"
 	},
 	"engines": {
 		"node": ">=9.8.0",
