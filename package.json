@@ -21,7 +21,8 @@
 	"license": "MIT",
 	"dependencies": {
 		"@ff0000-ad-tech/comment-hooks": "^1.1.0",
-		"require-from-string": "^2.0.1"
+		"require-from-string": "^2.0.1",
+		"stringify-object": "^3.3.0"
 	},
 	"devDependencies": {
 		"@babel/eslint-parser": "^7.15.0",
